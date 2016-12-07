@@ -4,6 +4,7 @@
   "description": "threejs boilerplate for rapid prototyping. Uses babelify for ES6 capabilities, budo for serving & hot-reloading",
   "main": "index.js",
   "scripts": {
+    "start": "budo index.js --live --cors --debug -- -t [babelify --presets es2015]",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
