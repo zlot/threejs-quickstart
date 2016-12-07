@@ -1,0 +1,25 @@
+{
+  "name": "threejs-quickstart",
+  "version": "1.0.0",
+  "description": "threejs boilerplate for rapid prototyping. Uses babelify for ES6 capabilities, budo for serving & hot-reloading",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zlot/threejs-quickstart.git"
+  },
+  "keywords": [
+    "threejs",
+    "three",
+    "boilerplate",
+    "quickstart"
+  ],
+  "author": "Mark C Mitchell <mark@markcmitchell.net> (http://markcmitchell.net)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zlot/threejs-quickstart/issues"
+  },
+  "homepage": "https://github.com/zlot/threejs-quickstart#readme"
+}
