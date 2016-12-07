@@ -14,7 +14,7 @@ camera.lookAt(scene.position)
 
 let cube = new THREE.Mesh(
   new THREE.BoxGeometry(1, 1, 1),
-  new THREE.MeshNormalMaterial()
+  new THREE.MeshStandardMaterial({color: 0xffffff})
 )
 
 scene.add(cube)
