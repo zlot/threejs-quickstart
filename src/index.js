@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import OrbitControls from './controls/orbit-controls'
-import createThreePointLighting from './createThreePointLighting'
+import TrackballControls from './controls/TrackballControls'
 
 const scene = new THREE.Scene()
 const renderer = new THREE.WebGLRenderer()
@@ -20,7 +20,7 @@ let cube = new THREE.Mesh(
 
 scene.add(cube)
 
-let lights = createThreePointLighting(scene)
+let lights = new ThreePointLighting(scene)
 lights.createHelpers()
 
 let render = () => {
