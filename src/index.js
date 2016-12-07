@@ -9,6 +9,7 @@ const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerH
 const controls = new OrbitControls(camera)
 
 renderer.setSize(window.innerWidth, window.innerHeight)
+renderer.setPixelRatio(window.devicePixelRatio);
 document.body.appendChild(renderer.domElement)
 
 camera.position.set(0, 0, 20)
