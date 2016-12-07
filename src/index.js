@@ -28,7 +28,10 @@ lights.createHelpers()
 
 let render = () => {
   requestAnimationFrame(render)
+  
   cube.rotation.y += 0.004
+
+  controls.update()
   renderer.render(scene, camera)
 }
 
