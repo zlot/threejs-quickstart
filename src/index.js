@@ -9,7 +9,8 @@ const controls = new OrbitControls(camera)
 renderer.setSize(window.innerWidth, window.innerHeight)
 document.body.appendChild(renderer.domElement)
 
-camera.position.z = 3
+camera.position.set(0.5, 1, 4)
+camera.lookAt(scene.position)
 
 let cube = new THREE.Mesh(
   new THREE.BoxGeometry(1, 1, 1),
