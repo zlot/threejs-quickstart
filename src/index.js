@@ -11,14 +11,14 @@ const controls = new OrbitControls(camera)
 renderer.setSize(window.innerWidth, window.innerHeight)
 document.body.appendChild(renderer.domElement)
 
-camera.position.set(0.5, 1, 4)
+camera.position.set(0, 0, 20)
 camera.lookAt(scene.position)
 
 let cube = new THREE.Mesh(
-  new THREE.BoxGeometry(1, 1, 1),
-  new THREE.MeshStandardMaterial({color: 0xffffff})
+  new THREE.BoxGeometry(10, 10, 10),
+  new THREE.MeshLambertMaterial({color: 0xffffff})
 )
-
+cube.castShadow = true
 scene.add(cube)
 
 let lights = new ThreePointLighting(scene)
