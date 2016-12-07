@@ -1,4 +1,4 @@
-import { AmbientLight, DirectionalLight, SpotLight } from 'three'
+import { AmbientLight, DirectionalLight } from 'three'
 
 export default class ThreePointLighting {
 
