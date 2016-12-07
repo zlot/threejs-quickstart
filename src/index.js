@@ -10,6 +10,7 @@ const controls = new OrbitControls(camera)
 
 renderer.setSize(window.innerWidth, window.innerHeight)
 renderer.setPixelRatio(window.devicePixelRatio);
+renderer.shadowMap.enabled = true
 document.body.appendChild(renderer.domElement)
 
 camera.position.set(0, 0, 20)
