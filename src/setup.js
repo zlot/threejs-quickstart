@@ -8,11 +8,7 @@ const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHei
 camera.position.set(0, 0, 40)
 camera.lookAt(scene.position)
 
-const controls = new TrackballControls(camera) // s to zoom, d to pan
-controls.maxDistance = 200;
-
 scene.add(new THREE.AxisHelper(20))
-
 let stats = new Stats()
 document.body.appendChild(stats.dom)
 
@@ -40,6 +36,9 @@ function renderLoop(customAnimation) {
     renderer.render(scene, camera)
   })()
 }
+
+const controls = new TrackballControls(camera, renderer.domElement) // s to zoom, d to pan
+controls.maxDistance = 200;
 
 window.addEventListener('resize', function onWindowResized(e) {
   renderer.setSize(window.innerWidth, window.innerHeight)
