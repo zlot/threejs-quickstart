@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import TrackballControls from './controls/TrackballControls'
-import stats from './helpers/displayStats'
+import Stats from 'stats.js'
 
 const scene = new THREE.Scene()
 
@@ -11,6 +11,9 @@ camera.lookAt(scene.position)
 const controls = new TrackballControls(camera)
 
 scene.add(new THREE.AxisHelper(20))
+
+let stats = new Stats()
+document.body.appendChild(stats.dom)
 
 let renderer = createRenderer(true)
 
