@@ -23,6 +23,9 @@ let cube = new THREE.Mesh(
 cube.castShadow = true
 scene.add(cube)
 
+let axisHelper = new THREE.AxisHelper(20)
+scene.add(axisHelper)
+
 let lights = new ThreePointLighting(scene)
 lights.createHelpers()
 
