@@ -5,6 +5,8 @@ import TrackballControls from './controls/TrackballControls'
 import ThreePointLighting from './helpers/ThreePointLighting'
 import createRenderer from './helpers/createRenderer'
 
+import eventHub  from './helpers/eventHub'
+
 const scene = new THREE.Scene()
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
 const controls = new OrbitControls(camera)
@@ -24,7 +26,11 @@ scene.add(axisHelper)
 
 let lights = new ThreePointLighting(scene)
 lights.createHelpers()
+createRenderer('WebGL', scene, camera)
+
+eventHub.addEventListener('render', () => {
 
   cube.rotation.y += 0.004
+})
 
 
