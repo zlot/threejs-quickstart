@@ -8,7 +8,7 @@ const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHei
 camera.position.set(0, 0, 40)
 camera.lookAt(scene.position)
 
-const controls = new TrackballControls(camera)
+const controls = new TrackballControls(camera) // s to zoom, d to pan
 
 scene.add(new THREE.AxisHelper(20))
 
