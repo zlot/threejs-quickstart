@@ -1,10 +1,8 @@
 import { AmbientLight, DirectionalLight } from 'three'
-
+import { scene } from '../setup'
 export default class ThreePointLighting {
 
-  constructor(scene) {
-    if(!scene)
-      throw new Error('Please provide a scene to ThreePointLighting constructor.')
+  constructor() {
 
     this.ambientLight = new AmbientLight(0x404040)
     scene.add(this.ambientLight)
