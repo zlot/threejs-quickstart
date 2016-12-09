@@ -37,6 +37,12 @@ function renderLoop(customAnimation) {
   })()
 }
 
+window.addEventListener('resize', function onWindowResized(e) {
+  renderer.setSize(window.innerWidth, window.innerHeight)
+	camera.aspect = window.innerWidth/window.innerHeight
+	camera.updateProjectionMatrix()
+})
+
 export {
   scene,
   camera,
