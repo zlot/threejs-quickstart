@@ -3,6 +3,8 @@ import OrbitControls from './controls/orbit-controls'
 import TrackballControls from './controls/TrackballControls'
 
 import ThreePointLighting from './helpers/ThreePointLighting'
+import Room from './helpers/Room'
+
 import createRenderer from './helpers/createRenderer'
 
 import eventHub  from './helpers/eventHub'
@@ -11,7 +13,7 @@ const scene = new THREE.Scene()
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
 const controls = new OrbitControls(camera)
 
-camera.position.set(0, 0, 20)
+camera.position.set(0, 0, 40)
 camera.lookAt(scene.position)
 
 let cube = new THREE.Mesh(
@@ -26,6 +28,7 @@ scene.add(axisHelper)
 
 let lights = new ThreePointLighting(scene)
 lights.createHelpers()
+let room = new Room(scene)
 createRenderer('WebGL', scene, camera)
 
 eventHub.addEventListener('render', () => {
