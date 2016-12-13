@@ -14,6 +14,9 @@ export default class ThreePointLighting {
     this.ambientLightColor = ambientLightColor
     this.keyLightColor = keyLightColor
     this.fillLightColor = fillLightColor
+    this.intensity = intensity
+    this.distance = distance
+    this.decay = decay
 
     this.ambientLight = new AmbientLight(ambientLightColor)
     scene.add(this.ambientLight)
@@ -74,6 +77,15 @@ export default class ThreePointLighting {
     })
     folder.addColor(this, 'ambientLightColor').onChange(color => {
       this.ambientLight.color.setHex(color.replace('#', '0x'))
+    })
+    folder.add(this, 'intensity', 0, 10).onChange(v => {
+      this.keyLight.intensity = this.fillLight.intensity = v
+    })
+    folder.add(this, 'distance', 0, 500).onChange(v => {
+      this.keyLight.distance = this.fillLight.distance = v
+    })
+    folder.add(this, 'decay', 0, 15).onChange(v => {
+      this.keyLight.decay = this.fillLight.decay = v
     })
   }
 }
