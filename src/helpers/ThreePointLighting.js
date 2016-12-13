@@ -1,5 +1,6 @@
 import { AmbientLight, DirectionalLight } from 'three'
-import { scene } from '../setup'
+import { scene, gui } from '../setup'
+
 export default class ThreePointLighting {
 
   constructor({
@@ -10,6 +11,9 @@ export default class ThreePointLighting {
     distance = 80,
     decay = 1
   } = {}) {
+    this.ambientLightColor = ambientLightColor
+    this.keyLightColor = keyLightColor
+    this.fillLightColor = fillLightColor
 
     this.ambientLight = new AmbientLight(ambientLightColor)
     scene.add(this.ambientLight)
@@ -21,6 +25,8 @@ export default class ThreePointLighting {
     this.fillLight = new THREE.PointLight(fillLightColor, this.keyLight.intensity/2, distance, decay)
     this.fillLight.position.set(-this.keyLight.position.x, 10, 20)
     scene.add(this.fillLight)
+
+    this._addToGUI()
 
     this.createHelpers = () => {
       scene.add(new THREE.PointLightHelper(this.keyLight, 1))
@@ -56,5 +62,18 @@ export default class ThreePointLighting {
     this.keyLight.shadow.map = null
     this.fillLight.shadow.map.dispose()
     this.fillLight.shadow.map = null
+  }
+
+  _addToGUI() {
+    let folder = gui.addFolder('ThreePointLighting')
+    folder.addColor(this, 'keyLightColor').onChange(color => {
+      this.keyLight.color.setHex(color.replace('#', '0x'))
+    })
+    folder.addColor(this, 'fillLightColor').onChange(color => {
+      this.fillLight.color.setHex(color.replace('#', '0x'))
+    })
+    folder.addColor(this, 'ambientLightColor').onChange(color => {
+      this.ambientLight.color.setHex(color.replace('#', '0x'))
+    })
   }
 }
