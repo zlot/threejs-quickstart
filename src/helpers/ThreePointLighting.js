@@ -87,5 +87,9 @@ export default class ThreePointLighting {
     folder.add(this, 'decay', 0, 15).onChange(v => {
       this.keyLight.decay = this.fillLight.decay = v
     })
+    let positionFolder = folder.addFolder('keyLight position')
+    positionFolder.add(this.keyLight.position, 'x').min(-200).max(200)
+    positionFolder.add(this.keyLight.position, 'y').min(-200).max(200)
+    positionFolder.add(this.keyLight.position, 'z').min(-200).max(200)
   }
 }
