@@ -5,17 +5,20 @@ export default class ThreePointLighting {
   constructor({
     ambientLightColor = 0x404040,
     keyLightColor = 0xffffff,
-    fillLightColor = 0xffffff
+    fillLightColor = 0xffffff,
+    intensity = .75,
+    distance = 80,
+    decay = 1
   } = {}) {
 
     this.ambientLight = new AmbientLight(ambientLightColor)
     scene.add(this.ambientLight)
 
-    this.keyLight = new THREE.PointLight(keyLightColor, .75, 80)
+    this.keyLight = new THREE.PointLight(keyLightColor, intensity, distance, decay)
     this.keyLight.position.set(-15, 10, 20)
     scene.add(this.keyLight)
 
-    this.fillLight = new THREE.PointLight(fillLightColor, this.keyLight.intensity/2, 80)
+    this.fillLight = new THREE.PointLight(fillLightColor, this.keyLight.intensity/2, distance, decay)
     this.fillLight.position.set(-this.keyLight.position.x, 10, 20)
     scene.add(this.fillLight)
 
