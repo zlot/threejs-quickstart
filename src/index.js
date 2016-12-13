@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import { scene, camera, controls, renderLoop } from './setup'
+import { scene, gui, renderLoop } from './setup'
 import ThreePointLighting from './helpers/ThreePointLighting'
 import Room from './helpers/Room'
 

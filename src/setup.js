@@ -1,12 +1,15 @@
 import * as THREE from 'three'
 import TrackballControls from './controls/TrackballControls'
 import Stats from 'stats.js'
+import dat from 'dat-gui'
 
 const scene = new THREE.Scene()
 
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000)
 camera.position.set(0, 0, 40)
 camera.lookAt(scene.position)
+
+let gui = new dat.gui.GUI()
 
 scene.add(new THREE.AxisHelper(20))
 let stats = new Stats()
@@ -50,5 +53,7 @@ export {
   scene,
   camera,
   controls,
-  renderLoop
+  renderer,
+  renderLoop,
+  gui
 }
