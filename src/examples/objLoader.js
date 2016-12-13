@@ -9,7 +9,9 @@ let room = new Room()
 let lights = new ThreePointLighting({
   keyLightColor: '#5a00ff',
   fillLightColor: '#fced00',
-  ambientLightColor: '#080908'
+  ambientLightColor: '#080908',
+  intensity: 1.5,
+  distance: 120
 })
 lights.createHelpers()
 lights.castShadow()
