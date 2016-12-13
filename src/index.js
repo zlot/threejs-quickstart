@@ -30,20 +30,3 @@ renderLoop(() => {
   lights.fillLight.position.y = 10*Math.cos(time)
   lights.fillLight.position.z = 10*Math.sin(time)
 })
-
-function setupGUI() {
-  let keyLightColor = gui.addColor(lightColors, 'keyLightColor').listen()
-  keyLightColor.onChange(color => {
-    lights.keyLight.color.setHex(color.replace('#', '0x'))
-  })
-  let fillLightColor = gui.addColor(lightColors, 'fillLightColor').listen()
-  fillLightColor.onChange(color => {
-    lights.fillLight.color.setHex(color.replace('#', '0x'))
-  })
-  let ambientLightColor = gui.addColor(lightColors, 'ambientLightColor').listen()
-  ambientLightColor.onChange(color => {
-    lights.ambientLight.color.setHex(color.replace('#', '0x'))
-  })
-}
-
-setupGUI()
