@@ -30,15 +30,20 @@ export default class ThreePointLighting {
     this.fillLight.castShadow = true
   }
 
+  /* Run only when shadow maps are ready */
   increaseShadowResolutionBy2x() {
     this._updateShadowMapsByScalar(2)
   }
-
+  /* Run only when shadow maps are ready */
   decreaseShadowResolutionBy2x() {
     this._updateShadowMapsByScalar(0.5)
   }
 
   _updateShadowMapsByScalar(s) {
+    if(!this.keyLight.shadow.map || !this.fillLight.shadow.map) {
+      console.warn('shadow maps for key or fill lights are not ready yet!')
+      return
+    }
     this.keyLight.shadow.mapSize.width *= s
     this.keyLight.shadow.mapSize.height *= s
     this.fillLight.shadow.mapSize.width *= s
