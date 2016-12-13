@@ -3,8 +3,8 @@ import { scene, camera, controls, renderLoop } from './setup'
 import ThreePointLighting from './helpers/ThreePointLighting'
 import Room from './helpers/Room'
 
-let room = new Room(scene)
 let lights = new ThreePointLighting(scene)
+let room = new Room()
 lights.createHelpers()
 lights.castShadow()
 
