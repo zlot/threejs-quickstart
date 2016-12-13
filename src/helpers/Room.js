@@ -1,11 +1,8 @@
 import { BoxGeometry, MeshPhongMaterial, Mesh } from 'three'
-
+import { scene } from '../setup'
 export default class Room {
 
-  constructor(scene) {
-    if(!scene)
-      throw new Error('Please provide a scene to Room constructor.')
-
+  constructor() {
     this.geo = new BoxGeometry(100, 100, 100)
     this.mat = new MeshPhongMaterial({
       color: 0xa0adaf,
