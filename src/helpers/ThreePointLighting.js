@@ -70,13 +70,13 @@ export default class ThreePointLighting {
   _addToGUI() {
     let folder = gui.addFolder('ThreePointLighting')
     folder.addColor(this, 'keyLightColor').onChange(color => {
-      this.keyLight.color.setHex(color.replace('#', '0x'))
+      this.keyLight.color.setStyle(color)
     })
     folder.addColor(this, 'fillLightColor').onChange(color => {
-      this.fillLight.color.setHex(color.replace('#', '0x'))
+      this.fillLight.color.setStyle(color)
     })
     folder.addColor(this, 'ambientLightColor').onChange(color => {
-      this.ambientLight.color.setHex(color.replace('#', '0x'))
+      this.ambientLight.color.setStyle(color)
     })
     folder.add(this, 'intensity', 0, 10).onChange(v => {
       this.keyLight.intensity = this.fillLight.intensity = v
