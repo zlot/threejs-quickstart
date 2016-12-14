@@ -2,9 +2,6 @@ import * as THREE from 'three'
 import { scene, gui, renderer, renderLoop } from '../setup'
 import ThreePointLighting from '../helpers/ThreePointLighting'
 
-renderer.gammaInput = true;
-      renderer.gammaOutput = true;
-
 let lightColors = {
   keyLightColor: '#5a00ff',
   fillLightColor: '#fced00',
@@ -47,7 +44,6 @@ let createSphere = () => {
 
 let sphere = createSphere()
 scene.add(sphere)
-sphere.visible = true
 
 renderLoop(() => {
   let time = performance.now()*0.001
@@ -63,8 +59,4 @@ renderLoop(() => {
 	cubeCamera.updateCubeMap(renderer, scene)
   sphere.visible = true
 
-  // lights.keyLight.position.x = 10*Math.cos(time)
-  // lights.keyLight.position.z = 10*Math.sin(time)
-  // lights.fillLight.position.y = 10*Math.cos(time)
-  // lights.fillLight.position.z = 10*Math.sin(time)
 })
