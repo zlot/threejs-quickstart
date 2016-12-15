@@ -50,8 +50,8 @@ renderLoop(() => {
 
   mirror1.position.z = 30*Math.sin(time*1.5) - 15
 
-  // hide cube, otherwise the cubeCamera can't see through it!
   mirrors.forEach(mirror => {
+    // hide the mirror mesh that the cubeCamera is within, otherwise the cubeCamera cannot see the world!
     mirror.visible = false
     mirror.userData.cubeCamera.updateCubeMap(renderer, scene)
     mirror.visible = true
