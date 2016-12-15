@@ -3,7 +3,8 @@ import { scene } from '../setup'
 export default class Room {
 
   constructor() {
-    this.geo = new BoxGeometry(100, 100, 100)
+    this.width = this.height = this.depth = 100
+    this.geo = new BoxGeometry(this.width, this.width, this.width)
     this.mat = new MeshPhongMaterial({
       color: 0xa0adaf,
       shininess: 10,
