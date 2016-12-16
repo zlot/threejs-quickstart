@@ -9,9 +9,12 @@ const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHei
 camera.position.set(0, 0, 40)
 camera.lookAt(scene.position)
 
+let mouse = new THREE.Vector2()
+
 let gui = new dat.gui.GUI()
 
 scene.add(new THREE.AxisHelper(20))
+
 let stats = new Stats()
 document.body.appendChild(stats.dom)
 
@@ -47,6 +50,13 @@ window.addEventListener('resize', function onWindowResized(e) {
   renderer.setSize(window.innerWidth, window.innerHeight)
 	camera.aspect = window.innerWidth/window.innerHeight
 	camera.updateProjectionMatrix()
+})
+
+window.addEventListener('mousemove', function onMouseMove(e) {
+  // calculate mouse position in normalized device coordinates
+  // (-1 to +1) for both components
+  mouse.x = (e.clientX/window.innerWidth)*2 - 1
+  mouse.y = -(e.clientY/window.innerHeight)*2 + 1
 })
 
 export {
