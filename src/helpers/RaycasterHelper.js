@@ -1,7 +1,12 @@
 import { Raycaster, EventDispatcher } from 'three'
 import { scene, camera, mouse } from '../setup'
 
-
+/*
+ * Dispatches two events: newIntersection and zeroIntersects.
+ * newIntersection is passed object and previousObject.
+ * zeroIntersects is passed only previousObject.
+ * Note that for both events, previousObject could be null! So make sure to check.
+ */
 export default class RaycasterHelper {
 
   constructor(objectsToCheck = scene.children) {
