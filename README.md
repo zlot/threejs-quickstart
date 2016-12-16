@@ -1,4 +1,7 @@
 # threejs-quickstart
+A browserify environment to jumpstart your three.js sketches. Includes helper
+modules and a quick setup for fast iteration.
+
 Currently under construction.
 
 ## Notes
