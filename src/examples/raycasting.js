@@ -1,5 +1,6 @@
 import * as THREE from 'three'
 import { scene, camera, renderLoop } from '../setup'
+import RaycasterHelper from '../helpers/RaycasterHelper'
 
 let cubes = []
 function createCube(color) {
@@ -16,55 +17,34 @@ function createCube(color) {
 
 const COLOR = {
   UNSELECTED: 0x0000ff,
-  SELECTED: 0x00ff00
+  SELECTED: 0xff0000
 }
+createCube(COLOR.UNSELECTED).position.x = -10
+createCube(COLOR.UNSELECTED).position.x = 10
+createCube(COLOR.UNSELECTED).cube3.position.y = 10
+createCube(COLOR.UNSELECTED).cube4.position.y = -10
 
-let cube1 = createCube(COLOR.UNSELECTED)
-cube1.position.x = -10
-let cube2 = createCube(COLOR.UNSELECTED)
-cube2.position.x = 10
 
+let raycasterHelper = new RaycasterHelper(cubes)
 
-let mouse = new THREE.Vector2()
-
-let raycaster = new THREE.Raycaster()
-// renderer.sortObjects = false?
-
-let INTERSECTED = false
-window.addEventListener( 'mousemove', onMouseMove);
-
-renderLoop(() => {
-
-  raycaster.setFromCamera(mouse, camera)
-  let intersects = raycaster.intersectObjects(cubes)
-  //
-  if(intersects.length > 0) {
-  //   // if currently intersected is not the first intersected object found
-  //   // aka if we're intersecting a new object
-    if(INTERSECTED != intersects[0].object) {
-
-      if(INTERSECTED) {
-        INTERSECTED.material.color.set(COLOR.UNSELECTED)
-      }
-
-      INTERSECTED = intersects[0].object
-      INTERSECTED.material.color.set(COLOR.SELECTED)
-    }
-  } else {
-    if(INTERSECTED) {
-      INTERSECTED.material.color.set(COLOR.UNSELECTED)
-      INTERSECTED = null
-    }
+raycasterHelper.addEventListener('newIntersection', data => {
+  data.object.material.color.set(COLOR.SELECTED)
+  // Note that previousObject may be null!
+  if(data.previousObject) {
+    data.previousObject.material.color.set(COLOR.UNSELECTED)
   }
+  console.log('%c new intersection', 'color: red')
+})
 
+raycasterHelper.addEventListener('zeroIntersects', data => {
+  // Note that previousObject may be null!
+  if(data.previousObject) {
+    data.previousObject.material.color.set(COLOR.UNSELECTED)
+  }
+  console.log('%c zeroIntersects', 'color: blue')
 })
 
 
-function onMouseMove( event ) {
-
-	// calculate mouse position in normalized device coordinates
-	// (-1 to +1) for both components
-	mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-	mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
-
-}
+renderLoop(() => {
+  raycasterHelper.checkForIntersects()
+})
