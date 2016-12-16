@@ -21,8 +21,8 @@ const COLOR = {
 }
 createCube(COLOR.UNSELECTED).position.x = -10
 createCube(COLOR.UNSELECTED).position.x = 10
-createCube(COLOR.UNSELECTED).cube3.position.y = 10
-createCube(COLOR.UNSELECTED).cube4.position.y = -10
+createCube(COLOR.UNSELECTED).position.y = 10
+createCube(COLOR.UNSELECTED).position.y = -10
 
 
 let raycasterHelper = new RaycasterHelper(cubes)
