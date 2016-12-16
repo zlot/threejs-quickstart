@@ -63,6 +63,7 @@ export {
   scene,
   camera,
   controls,
+  mouse,
   renderer,
   renderLoop,
   gui
