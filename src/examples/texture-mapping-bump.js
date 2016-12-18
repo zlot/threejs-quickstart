@@ -2,7 +2,9 @@ import * as THREE from 'three'
 import { scene, gui, renderLoop } from '../setup'
 import ThreePointLighting from '../helpers/ThreePointLighting'
 
-new ThreePointLighting()
+new ThreePointLighting({
+  ambientLightColor: 0x999999
+})
 
 let texLoader = new THREE.TextureLoader()
 
