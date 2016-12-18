@@ -19,7 +19,7 @@ let matWithBump = new THREE.MeshPhongMaterial({
 })
 
 let matWithoutBump = new THREE.MeshPhongMaterial({
-  map: texLoader.load('../textures/rocks.jpg'),
+  map: rocksTexture,
 })
 
 let meshWithBump = new THREE.Mesh(new THREE.BoxBufferGeometry(150,10,150), matWithBump)
