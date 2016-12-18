@@ -18,13 +18,14 @@ let matWithoutBump = new THREE.MeshPhongMaterial({
   map: texLoader.load('../textures/rocks.jpg'),
 })
 
-let mesh = new THREE.Mesh(new THREE.BoxBufferGeometry(10,10,10), matWithBump)
-mesh.position.x = -10
-scene.add(mesh)
+let meshWithBump = new THREE.Mesh(new THREE.BoxBufferGeometry(150,10,150), matWithBump)
+meshWithBump.position.y = -15
+scene.add(meshWithBump)
 
-mesh = new THREE.Mesh(new THREE.BoxBufferGeometry(10,10,10), matWithoutBump)
-mesh.position.x = 10
-scene.add(mesh)
+let meshWithoutBump = new THREE.Mesh(new THREE.BoxBufferGeometry(150,10,150), matWithoutBump)
+meshWithoutBump.position.y = 15
+scene.add(meshWithoutBump)
+
 
 renderLoop(() => {
   // mesh.rotation.y += 0.001
