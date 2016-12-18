@@ -10,6 +10,8 @@ camera.position.set(0, 0, 25)
 
 let texLoader = new THREE.TextureLoader()
 let rocksTexture = texLoader.load('../textures/rocks.jpg')
+rocksTexture.wrapS = rocksTexture.wrapT = THREE.RepeatWrapping
+rocksTexture.repeat.set(3, 3)
 
 let matWithBump = new THREE.MeshPhongMaterial({
   map: rocksTexture,
