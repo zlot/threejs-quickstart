@@ -27,6 +27,7 @@ let floor = new Physijs.Box(
 floor.position.y = -10
 scene.add(floor);
 
+document.addEventListener('click', boxFactory)
 
 renderLoop(() => {
   let time = performance.now()*0.001
