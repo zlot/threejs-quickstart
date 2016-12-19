@@ -7,13 +7,19 @@ camera.position.y = 20
 let boxes = []
 
 let boxFactory = () => {
-  let box = new Physijs.Box(
-    new THREE.BoxGeometry(_.random(3,8), _.random(3,8), _.random(3,8)),
-    new THREE.MeshBasicMaterial({color: randomColor(0.89,0.99).hexString()}),
-    { mass: 1, restitution: 0.7 }
-  )
-  box.position.set(_.random(-20, 20), _.random(20), _.random(-20, 20))
-  scene.add(box)
+  let mesh = Math.random() < 0.5 ?
+    new Physijs.Box(
+      new THREE.BoxGeometry(_.random(3,8), _.random(3,8), _.random(3,8)),
+      new THREE.MeshBasicMaterial({color: randomColor(0.89,0.99).hexString()}),
+      { mass: 1, restitution: 0.7 }
+    ) :
+    new Physijs.Cylinder(
+      new THREE.CylinderGeometry(_.random(2,6), _.random(2,6), _.random(3,8), 32, 32),
+      new THREE.MeshBasicMaterial({color: randomColor(0.89,0.99).hexString()}),
+      { mass: 1, restitution: 0.7 }
+    )
+  mesh.position.set(_.random(-20, 20), _.random(20), _.random(-20, 20))
+  scene.add(mesh)
 }
 
 _.times(40, boxFactory)
