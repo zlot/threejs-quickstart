@@ -4,7 +4,11 @@ import Stats from 'stats.js'
 import dat from 'dat-gui'
 let Physijs = require('physijs/dist/physi.js')
 
-const scene = new Physijs.Scene(__dirname + '/physijs-worker.js')
+const scene = new Physijs.Scene(__dirname + '/physijs-worker.js', {
+  gravity: {
+    x: 0, y: -9.8, z: 0
+  }
+})
 
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000)
 camera.position.set(0, 0, 40)
