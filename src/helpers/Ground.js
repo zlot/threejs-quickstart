@@ -1,8 +1,9 @@
 import { Mesh, MeshPhongMaterial, PlaneGeometry } from 'three'
+import { scene } from '../setup'
 
 export default class Ground {
 
-  constructor(scene) {
+  constructor() {
     let geo = new THREE.PlaneGeometry(100, 100)
     geo.rotateX(-Math.PI/2)
 
