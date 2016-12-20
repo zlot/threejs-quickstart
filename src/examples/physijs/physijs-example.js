@@ -1,6 +1,10 @@
-import { scene, camera, renderLoop, Physijs } from './setup-physijs'
+import { init, scene, camera, renderLoop, Physijs } from '../../setup'
 import _ from 'lodash'
 import randomColor from 'random-color'
+
+init({
+  physics: true
+})
 
 camera.position.y = 20
 
@@ -27,7 +31,7 @@ _.times(40, boxFactory)
 
 let floor = new Physijs.Box(
   new THREE.BoxGeometry(100, 1, 100),
-  new THREE.MeshBasicMaterial({color: 'grey'}),
+  new THREE.MeshBasicMaterial({color: 0x45fefe}),
   { restitution: 0.4 }
 )
 floor.position.y = -10
