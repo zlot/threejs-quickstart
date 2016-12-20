@@ -7,7 +7,8 @@ let scene, camera, controls, mouse, renderer, renderLoop, gui
 let Physijs
 
 function init({
-  physics = false
+  physics = false,
+  shadowsEnabled = true
 } = {}) {
 
   if(physics) {
@@ -32,9 +33,9 @@ function init({
   const stats = new Stats()
   document.body.appendChild(stats.dom)
 
-  renderer = createRenderer(true)
+  renderer = createRenderer()
 
-  function createRenderer(shadowsEnabled = true) {
+  function createRenderer() {
     let r = new THREE.WebGLRenderer()
     r.setSize(window.innerWidth, window.innerHeight)
     r.setPixelRatio(window.devicePixelRatio)
@@ -47,7 +48,7 @@ function init({
   renderLoop = customAnimation => {
     let animate = customAnimation
     let physics_framerate = 1000/60
-    
+
     if(physics) {
       function stepPhysics() {
         scene.step(physics_framerate/1000, undefined, render)
