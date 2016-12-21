@@ -6,11 +6,15 @@ export default function({
   showSphere = true,
   intensity = .75,
   distance = 80,
-  castShadow = false
+  castShadow = false,
+  shadowMapMultiplier = 1
 } = {}) {
+
   let color = randomColor(0.99,0.99).hexString()
   let light = new THREE.PointLight(color, intensity, distance)
-  light.castShadow = castShadow ? true : false
+  light.castShadow = castShadow
+  light.shadow.mapSize.width *= shadowMapMultiplier
+  light.shadow.mapSize.height *= shadowMapMultiplier
 
   let sphere = showSphere ? new THREE.Mesh(
     new THREE.SphereGeometry(0.5, 8, 8),
