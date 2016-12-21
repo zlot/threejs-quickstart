@@ -4,6 +4,7 @@ import { scene } from '../setup'
 export default class Ground {
 
   constructor({
+    receiveShadow = false,
     color = 0x888888,
     y = -20
   } = {}) {
@@ -18,8 +19,8 @@ export default class Ground {
     this.mesh = new THREE.Mesh(geo, mat)
     this.mesh.position.set(0, y, 0)
 
+    this.mesh.receiveShadow = receiveShadow
 
-    this.mesh.receiveShadow = true
     scene.add(this.mesh)
   }
 
