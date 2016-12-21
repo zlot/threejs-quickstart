@@ -94,6 +94,7 @@ function init({
 
 export {
   init,
+  THREE,
   scene,
   camera,
   controls,
