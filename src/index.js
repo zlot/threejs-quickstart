@@ -1,7 +1,9 @@
 import * as THREE from 'three'
-import { scene, gui, renderLoop } from './setup'
+import { scene, gui, renderLoop, init } from './setup'
 import ThreePointLighting from './helpers/ThreePointLighting'
 import Room from './helpers/Room'
+
+init()
 
 let room = new Room()
 
