@@ -1,6 +1,8 @@
 import * as THREE from 'three'
-import { scene, camera, renderLoop } from '../setup'
+import { init, scene, camera, renderLoop } from '../setup'
 import RaycasterHelper from '../helpers/RaycasterHelper'
+
+init()
 
 let cubes = []
 function createCube(color) {
